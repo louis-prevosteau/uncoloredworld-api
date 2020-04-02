@@ -1,0 +1,39 @@
+@startuml
+hide empty method
+class Tache {
+int id
+datetime expiration
+string categorie
+text description
+bool accomplie
+}
+
+class Suivi {
+int id
+string titre
+text commentaire
+}
+
+class Personne {
+int id
+string nom
+string prenom
+string specialite
+text cv
+bool actif
+string avatar
+}
+
+class User {
+int id
+string name
+string email
+string password
+}
+
+Tache "1" -right- "*" Suivi
+Tache "*" -- "*" Personne
+User "0..1" -- "1" Personne: profil >
+Personne "1" -right- "*" Suivi
+
+@enduml
